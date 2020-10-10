@@ -6,5 +6,8 @@ void setup() {
 void draw() {
   int ballSize = 50;
   fill(255,255,255);
-  ellipse(mouseX, mouseY, ballSize, ballSize);
+  stroke(0,0,0,0);
+  if (mousePressed) {
+      ellipse(mouseX, mouseY, ballSize, ballSize);
+  }
 }
