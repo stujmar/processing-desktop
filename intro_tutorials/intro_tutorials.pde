@@ -1,14 +1,14 @@
 //My first Sketch
 void setup() {
   size(500, 500);
-  background(220,220,175);
 }
 
 void draw () {
+  background(255,220 + (mouseX * .068),255);
   stroke(120,155,255);
-  strokeWeight(10);
+  strokeWeight(5);
   fill(255,100,20);
   rect(250, 200, 150, 100);
-  rect(150, 100, 50, 10);
-  ellipse(0,0, 50,50);
+  rect(150, 100, 50, 50);
+  ellipse(mouseX ,mouseY + 35, 50,50);
 }
