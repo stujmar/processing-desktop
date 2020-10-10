@@ -1,7 +1,10 @@
 void setup() {
   //size(400,400);
   fullScreen(SPAN);
-  background(0,0,0);
+  pixelDensity(2);
+  frameRate(240);
+
+  background(0,5,0);
 }
 
 void draw() {
