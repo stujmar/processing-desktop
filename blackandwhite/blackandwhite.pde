@@ -17,5 +17,9 @@ void draw() {
   } else {
   fill(0,0,0);
   }
+  rect(0,0, 10,10);
+  if (mousePressed && mouseX < 10 && mouseY < 10) {
+  saveFrame("output.png");
+  }
   ellipse(mouseX, mouseY, ballSize, ballSize);
 }
