@@ -22,4 +22,6 @@ void draw() {
   saveFrame("output.png");
   }
   ellipse(mouseX, mouseY, ballSize, ballSize);
+  fill(0, 255, 0);
+  ellipse(width/2, height/2, 40,40);
 }
