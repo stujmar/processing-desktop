@@ -10,6 +10,7 @@ void draw() {
   int ballSize = 50;
   stroke(255,0,0);
   line(150, 25, 270, 350);
+  line(150, 25, mouseX, mouseY);
   stroke(0,0,0,0);
   if (mousePressed) {
   fill(255,255,255);    
