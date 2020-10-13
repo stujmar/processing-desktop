@@ -1,6 +1,7 @@
 // Example: Two Car objects
 Car myCar1;
 Car myCar2; // Two objects!
+Tree tree1;
 
 void setup() {
   size(300,300);
@@ -47,8 +48,12 @@ class Car {
     xpos = xpos + xspeed;
     if (xpos > width) {
       xpos = 0;
-    } else if (xpos < width) {
+    } else if (xpos < 0) {
       xpos = width;
     }
   }
+}
+
+class Tree {
+
 }
