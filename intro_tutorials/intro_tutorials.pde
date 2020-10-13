@@ -9,8 +9,8 @@ void setup() {
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
   myCar2 = new Car(color(0,0,255),0,80,-1);
-  tree1 = new Tree(50,200,200);
-  tree2 = new Tree(25, 100, 250);
+  tree1 = new Tree(50,200,50);
+  tree2 = new Tree(25, 150, 25);
 }
 
 void draw() {
@@ -65,7 +65,7 @@ class Tree {
   float yPos;
   
     // The Constructor is defined with arguments.
-  Tree(float treeSize, float xPos, float yPos) { 
+  Tree(float xPos, float yPos, float treeSize) { 
     this.treeSize = treeSize;
     this.xPos = xPos;
     this.yPos = yPos;
@@ -75,5 +75,9 @@ class Tree {
     stroke(0);
     fill(100,255,100);
     ellipse(xPos,yPos,treeSize, treeSize);
+  }
+  
+  void cluster() {
+  
   }
 }
