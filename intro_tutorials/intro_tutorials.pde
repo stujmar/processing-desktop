@@ -6,13 +6,13 @@ void setup() {
   size(300,300);
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
-  myCar2 = new Car(color(0,0,255),0,10,1);
+  myCar2 = new Car(color(0,0,255),0,80,-1);
 }
 
 void draw() {
   background(150,200,35);
   fill(150);
-  rect(150, 10, 305, 15);
+  rect(150, 80, 305, 15);
   rect(150, 100, 305, 15);
   myCar1.drive();
   myCar1.display();
@@ -47,6 +47,8 @@ class Car {
     xpos = xpos + xspeed;
     if (xpos > width) {
       xpos = 0;
+    } else if (xpos < width) {
+      xpos = width;
     }
   }
 }
