@@ -55,5 +55,20 @@ class Car {
 }
 
 class Tree {
-
+  float treeSize;
+  float xPos;
+  float yPos;
+  
+    // The Constructor is defined with arguments.
+  Tree(float treeSize, float xPos, float yPos) { 
+    this.treeSize = treeSize;
+    this.xPos = xPos;
+    this.yPos = yPos;
+  }
+  
+   void display() {
+    stroke(0);
+    fill(100,255,100);
+    ellipse(xPos,yPos,treeSize, treeSize);
+  }
 }
