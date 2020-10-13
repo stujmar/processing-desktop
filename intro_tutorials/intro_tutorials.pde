@@ -11,6 +11,9 @@ void setup() {
 
 void draw() {
   background(150,200,35);
+  fill(150);
+  rect(150, 10, 305, 15);
+  rect(150, 100, 305, 15);
   myCar1.drive();
   myCar1.display();
   myCar2.drive();
