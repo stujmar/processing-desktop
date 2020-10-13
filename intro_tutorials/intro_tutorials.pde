@@ -8,6 +8,7 @@ void setup() {
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
   myCar2 = new Car(color(0,0,255),0,80,-1);
+  tree1 = new Tree(150,200,100);
 }
 
 void draw() {
@@ -15,6 +16,7 @@ void draw() {
   fill(150);
   rect(150, 80, 305, 15);
   rect(150, 100, 305, 15);
+  tree1.display();
   myCar1.drive();
   myCar1.display();
   myCar2.drive();
