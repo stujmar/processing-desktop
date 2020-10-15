@@ -1,6 +1,8 @@
+float bg = 255;
+
 void setup(){
   size(450,450);
-  background(255);
+  background(bg);
 }
 
 void draw() {
@@ -16,4 +18,8 @@ void draw() {
   }
   stroke(15);
   line(mouseX, mouseY, pmouseX, pmouseY);
+}
+
+void mouseClicked() {
+
 }
