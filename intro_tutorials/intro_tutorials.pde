@@ -17,9 +17,12 @@ void setup() {
 
 void draw() {
   // clear button
+  fill(255);
+  rect(5, 10, 75, 20);
   fill(0);
   textSize(12);
-  text("clear", 10, 30);
+  text("clear", 5, 15);
+
   
   fill(150);
   rect(width/2, 80, width + 5, 15);
@@ -31,7 +34,9 @@ void draw() {
  
   tree1.paint();
   tree2.paint();
-  if (mousePressed) {
+  if (mousePressed && mouseX < 75 && mouseY < 20) {
+    background(150,200,35);
+  } else {
     tree2.cluster(mouseX, mouseY);  
   }
 
@@ -94,7 +99,7 @@ class Tree {
       if (i > 5 || i < 3) {
         swell = 0;
       } else {
-        swell = random(-15,15);
+        swell = random(-20,20);
       }
       float r = random( treeSize - 10, treeSize + 10);
       float pos = random( -25, 25);
