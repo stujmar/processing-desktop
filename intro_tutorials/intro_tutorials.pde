@@ -78,7 +78,7 @@ class Tree {
     ellipse(xPos,yPos,treeSize, treeSize);
   }
   
-  void cluster() {
+  void cluster(float xPos, float yPos) {
     for (int i = 0; i < 8; i++) {
       float r = random( treeSize-5, treeSize + 5);
       ellipse(xPos + (i * 10),yPos, r, r);
