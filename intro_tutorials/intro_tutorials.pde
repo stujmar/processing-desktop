@@ -16,8 +16,10 @@ void setup() {
 
 void draw() {
   fill(150);
+  fill(5);
   rect(150, 80, 305, 15);
   rect(150, 100, 305, 15);
+ 
   tree1.display();
   tree2.display();
   if (mousePressed) {
