@@ -6,6 +6,7 @@ Tree tree2;
 
 void setup() {
   size(300,300);
+  background(150,200,35);
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
   myCar2 = new Car(color(0,0,255),0,80,-1);
@@ -14,13 +15,15 @@ void setup() {
 }
 
 void draw() {
-  background(150,200,35);
   fill(150);
   rect(150, 80, 305, 15);
   rect(150, 100, 305, 15);
   tree1.display();
   tree2.display();
-  tree2.cluster(mouseX, mouseY);
+  if (mousePressed) {
+    tree2.cluster(mouseX, mouseY);  
+  }
+
   myCar1.drive();
   myCar1.display();
   myCar2.drive();
