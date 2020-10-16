@@ -17,7 +17,8 @@ void setup() {
 
 void draw() {
   // clear button
-  textSize(32);
+  fill(0);
+  textSize(12);
   text("clear", 10, 30);
   
   fill(150);
@@ -89,9 +90,15 @@ class Tree {
   
   void cluster(float xPos, float yPos) {
     for (int i = 0; i < 8; i++) {
+      float swell = 0;
+      if (i > 5 || i < 3) {
+        swell = 0;
+      } else {
+        swell = random(-15,15);
+      }
       float r = random( treeSize - 10, treeSize + 10);
       float pos = random( -25, 25);
-      ellipse(xPos + (i * 10),yPos + pos, r, r);
+      ellipse(xPos + (i * 10),yPos + pos + swell, r, r);
     }
   }
 }
