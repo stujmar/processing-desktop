@@ -20,7 +20,7 @@ void draw() {
   rect(150, 100, 305, 15);
   tree1.display();
   tree2.display();
-  tree2.cluster();
+  tree2.cluster(mouseX, mouseY);
   myCar1.drive();
   myCar1.display();
   myCar2.drive();
@@ -80,8 +80,9 @@ class Tree {
   
   void cluster(float xPos, float yPos) {
     for (int i = 0; i < 8; i++) {
-      float r = random( treeSize-5, treeSize + 5);
-      ellipse(xPos + (i * 10),yPos, r, r);
+      float r = random( treeSize - 10, treeSize + 10);
+      float pos = random( -25, 25);
+      ellipse(xPos + (i * 10),yPos + pos, r, r);
     }
   }
 }
