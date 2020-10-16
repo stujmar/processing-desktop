@@ -5,7 +5,8 @@ Tree tree1;
 Tree tree2;
 
 void setup() {
-  size(300,300);
+  rectMode(CENTER);
+  size(400,400);
   background(150,200,35);
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
@@ -15,21 +16,25 @@ void setup() {
 }
 
 void draw() {
+  // clear button
+  textSize(32);
+  text("clear", 10, 30);
+  
   fill(150);
-  fill(5);
-  rect(150, 80, 305, 15);
-  rect(150, 100, 305, 15);
- 
-  tree1.display();
-  tree2.display();
-  if (mousePressed) {
-    tree2.cluster(mouseX, mouseY);  
-  }
-
+  rect(width/2, 80, width + 5, 15);
+  rect(width/2, 100, width + 5, 15);
   myCar1.drive();
   myCar1.display();
   myCar2.drive();
   myCar2.display();
+ 
+  tree1.paint();
+  tree2.paint();
+  if (mousePressed) {
+    tree2.cluster(mouseX, mouseY);  
+  }
+
+
 }
 
 // Even though there are multiple objects, we still only need one class. 
@@ -51,7 +56,6 @@ class Car {
   void display() {
     stroke(0);
     fill(c);
-    rectMode(CENTER);
     rect(xpos,ypos,20,10);
   }
 
@@ -77,7 +81,7 @@ class Tree {
     this.yPos = yPos;
   }
   
-   void display() {
+   void paint() {
     stroke(0);
     fill(100,255,100);
     ellipse(xPos,yPos,treeSize, treeSize);
