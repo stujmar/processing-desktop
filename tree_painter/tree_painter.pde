@@ -1,18 +1,17 @@
 // Example: Two Car objects
 Car myCar1;
 Car myCar2;
-Tree tree1;
-Tree tree2;
+Tree tree;
 
 void setup() {
+  int treeMode = 0;
   rectMode(CENTER);
   size(400,400);
   background(150,200,35);
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
   myCar2 = new Car(color(0,0,255),0,80,-1);
-  tree1 = new Tree(50,200,50);
-  tree2 = new Tree(25, 150, 25);
+  tree = new Tree(50,200,50);
 }
 
 void draw() {
@@ -22,6 +21,8 @@ void draw() {
   fill(0);
   textSize(12);
   text("clear", 5, 15);
+  text("one", 300, 15);
+  text("cluster", 350, 15);
 
   
   fill(150);
@@ -35,7 +36,7 @@ void draw() {
   if (mousePressed && mouseX < 40 && mouseY < 20) {
     background(150,200,35);
   } else if (mousePressed) {
-    tree2.cluster(mouseX, mouseY);  
+    tree.cluster(mouseX, mouseY);  
   }
 
 
@@ -85,9 +86,12 @@ class Tree {
     this.yPos = yPos;
   }
   
-   void paint() {
-    stroke(0);
-    fill(100,255,100);
+   void paint(int treeMode) {
+    if (treeMode == 0) {
+    //draw one tree
+    } else {
+    //draw a cluster
+    }
     ellipse(xPos,yPos,treeSize, treeSize);
   }
   
@@ -107,4 +111,9 @@ class Tree {
       ellipse(xPos + (i * 10),yPos + pos + swell, r, r);
     }
   }
+}
+
+void drawOneRect(int drawMode, String name, int x, int y) {
+  rectMode(CENTER);
+//change color and toggle drawMode
 }
