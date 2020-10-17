@@ -2,10 +2,10 @@
 Car myCar1;
 Car myCar2;
 Tree tree;
-int drawMode;
+boolean treeMode;
 
 void setup() {
-  int treeMode = 0;
+  boolean treeMode = true;
   rectMode(CENTER);
   size(400,400);
   background(150,200,35);
@@ -17,8 +17,8 @@ void setup() {
 
 void draw() {
 
-  drawOneRect(0, "one", 250,0);
-  drawOneRect(0, "cluster", 325,0);
+  drawOneRect(treeMode, "one", 250,0);
+  drawOneRect(treeMode, "cluster", 325,0);
   fill(255);
   rect(5, 10, 75, 20);
   fill(0);
@@ -35,6 +35,8 @@ void draw() {
 
   if (mousePressed && mouseX < 40 && mouseY < 20) {
     background(150,200,35);
+  } else if (mousePressed && mouseX > 250 && mouseY < 20){
+  treeMode = !treeMode;
   } else if (mousePressed) {
     tree.cluster(mouseX, mouseY);  
   }
@@ -97,6 +99,7 @@ class Tree {
   
   void cluster(float xPos, float yPos) {
     stroke(0);
+    int treeSize = 15;
     fill(100,255,100);
     for (int i = 0; i < 8; i++) {
       float swell = 0;
@@ -113,9 +116,9 @@ class Tree {
   }
 }
 
-void drawOneRect(int drawMode, String name, int x, int y) {
+void drawOneRect(boolean treeMode, String name, int x, int y) {
   rectMode(CORNER);
-  if ((drawMode == 0 && name == "one") || (drawMode == 1 && name == "cluster")) {
+  if ((treeMode && name == "one") || (!treeMode && name == "cluster")) {
   fill(255,0,255);
   } else {
   fill(255);
