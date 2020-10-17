@@ -18,15 +18,13 @@ void setup() {
 void draw() {
 
   drawOneRect(0, "one", 200,200);
+  drawOneRect(0, "cluster", 275,200);
   fill(255);
   rect(5, 10, 75, 20);
   fill(0);
   textSize(12);
   text("clear", 5, 15);
-  text("one", 300, 15);
-  text("cluster", 350, 15);
 
-  
   fill(150);
   rect(width/2, 80, width + 5, 15);
   rect(width/2, 100, width + 5, 15);
@@ -118,12 +116,13 @@ class Tree {
 void drawOneRect(int drawMode, String name, int x, int y) {
   rectMode(CORNER);
   if ((drawMode == 0 && name == "one") || (drawMode == 1 && name == "cluster")) {
-  background(0,255,255);
+  fill(255,0,255);
   } else {
-  background(255,0,0);
+  fill(255);
   }
   rect(x,y, 75, 20);
-  text(name, x, y);
+  fill(0);
+  text(name, x + 5, y + 15);
   rectMode(CENTER);
 
 }
