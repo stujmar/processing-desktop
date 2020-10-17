@@ -17,8 +17,8 @@ void setup() {
 
 void draw() {
 
-  drawOneRect(0, "one", 200,200);
-  drawOneRect(0, "cluster", 275,200);
+  drawOneRect(0, "one", 250,0);
+  drawOneRect(0, "cluster", 325,0);
   fill(255);
   rect(5, 10, 75, 20);
   fill(0);
