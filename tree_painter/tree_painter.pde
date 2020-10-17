@@ -2,6 +2,7 @@
 Car myCar1;
 Car myCar2;
 Tree tree;
+int drawMode;
 
 void setup() {
   int treeMode = 0;
@@ -15,7 +16,8 @@ void setup() {
 }
 
 void draw() {
-  // clear button
+
+  drawOneRect(0, "one", 200,200);
   fill(255);
   rect(5, 10, 75, 20);
   fill(0);
@@ -115,13 +117,13 @@ class Tree {
 
 void drawOneRect(int drawMode, String name, int x, int y) {
   rectMode(CORNER);
-  if ((drawMode == 0 && name == "one") || (drawMade == 1 && name == "cluster")) {
+  if ((drawMode == 0 && name == "one") || (drawMode == 1 && name == "cluster")) {
   background(0,255,255);
   } else {
   background(255,0,0);
   }
   rect(x,y, 75, 20);
-  text("one", 300, 15);
+  text(name, x, y);
   rectMode(CENTER);
 
 }
