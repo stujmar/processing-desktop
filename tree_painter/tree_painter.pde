@@ -18,6 +18,10 @@ void setup() {
 void mouseClicked() {
   if (mouseX > 250 && mouseY < 20){
     treeMode = !treeMode;
+  } else if (treeMode) {
+        float tempSize = random(5,25);
+      fill(random(80,150), random(220,255), random(90,110));
+      ellipse(mouseX , mouseY, tempSize, tempSize);
   }
 }
 
@@ -105,9 +109,9 @@ class Tree {
   
   void cluster(float xPos, float yPos) {
     if (treeMode) {
-      float tempSize = random(5,25);
-      fill(random(80,150), random(220,255), random(90,110));
-      ellipse(xPos , yPos, tempSize, tempSize);
+      //float tempSize = random(5,25);
+      //fill(random(80,150), random(220,255), random(90,110));
+      //ellipse(xPos , yPos, tempSize, tempSize);
     } else {
         stroke(0);
     int treeSize = 15;
