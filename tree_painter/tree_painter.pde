@@ -114,6 +114,14 @@ class Tree {
 }
 
 void drawOneRect(int drawMode, String name, int x, int y) {
+  rectMode(CORNER);
+  if ((drawMode == 0 && name == "one") || (drawMade == 1 && name == "cluster")) {
+  background(0,255,255);
+  } else {
+  background(255,0,0);
+  }
+  rect(x,y, 75, 20);
+  text("one", 300, 15);
   rectMode(CENTER);
-//change color and toggle drawMode
+
 }
