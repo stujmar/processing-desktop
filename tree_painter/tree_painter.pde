@@ -15,6 +15,12 @@ void setup() {
   tree = new Tree(50,200,50);
 }
 
+void mouseClicked() {
+  if (mouseX > 250 && mouseY < 20){
+    treeMode = !treeMode;
+  }
+}
+
 void draw() {
 
   drawOneRect(treeMode, "one", 250,0);
@@ -36,7 +42,7 @@ void draw() {
   if (mousePressed && mouseX < 40 && mouseY < 20) {
     background(150,200,35);
   } else if (mousePressed && mouseX > 250 && mouseY < 20){
-  treeMode = !treeMode;
+
   } else if (mousePressed) {
     tree.cluster(mouseX, mouseY);  
   }
