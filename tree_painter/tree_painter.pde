@@ -23,8 +23,8 @@ void mouseClicked() {
 
 void draw() {
 
-  drawOneRect(treeMode, "one", 250,0);
-  drawOneRect(treeMode, "cluster", 325,0);
+  drawToggle(treeMode, "one", 250,0);
+  drawToggle(treeMode, "cluster", 325,0);
   fill(255);
   rect(5, 10, 75, 20);
   fill(0);
@@ -104,7 +104,12 @@ class Tree {
   }
   
   void cluster(float xPos, float yPos) {
-    stroke(0);
+    if (treeMode) {
+      float tempSize = random(5,25);
+      fill(random(80,150), random(220,255), random(90,110));
+      ellipse(xPos , yPos, tempSize, tempSize);
+    } else {
+        stroke(0);
     int treeSize = 15;
     fill(100,255,100);
     for (int i = 0; i < 8; i++) {
@@ -119,10 +124,12 @@ class Tree {
       fill(random(80,150), random(220,255), random(90,110));
       ellipse(xPos + (i * 10),yPos + pos + swell, r, r);
     }
+    }
+
   }
 }
 
-void drawOneRect(boolean treeMode, String name, int x, int y) {
+void drawToggle(boolean treeMode, String name, int x, int y) {
   rectMode(CORNER);
   if ((treeMode && name == "one") || (!treeMode && name == "cluster")) {
   fill(255,0,255);
