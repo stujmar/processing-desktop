@@ -119,7 +119,12 @@ void drawToggle(boolean treeMode, String name, int x, int y) {
 }
 
 void drawFromArray(){
-   
+  if (treeList.size() > 0) {
+  fill(255,0, 0);
+  for (int i = 0; i < treeList.size(); i++) {
+       ellipse(treeList.get(i).xPos, treeList.get(i).yPos, 40, 40);
+  } 
+  }
 }
 
  void paint(float mouseX, float mouseY, boolean cluster) {
