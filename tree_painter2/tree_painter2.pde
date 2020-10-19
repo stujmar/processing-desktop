@@ -16,13 +16,13 @@ void setup() {
 }
 
 void mouseClicked() {
+  if (mouseY > 20) {
   treeList.add(new Tree(mouseX, mouseY, 40, false));
-  if (mouseX > 250 && mouseY < 20){
+  } else if (mouseX > 250 && mouseY < 20){
     treeMode = !treeMode;
-  } else if (treeMode) {
-        float tempSize = random(5,25);
-      fill(random(80,150), random(220,255), random(90,110));
-      ellipse(mouseX , mouseY, tempSize, tempSize);
+  } else if (mouseX < 75 && mouseY < 20) {
+      print("clear");
+      treeList = new ArrayList<Tree>();
   }
   print(treeList);
 }
