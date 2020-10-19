@@ -12,7 +12,7 @@ void setup() {
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
   myCar2 = new Car(color(0,0,255),0,80,-1);
-  tree = new Tree(50,200,50);
+  tree = new Tree(50,200,50, false);
 }
 
 void mouseClicked() {
@@ -48,7 +48,7 @@ void draw() {
   } else if (mousePressed && mouseX > 250 && mouseY < 20){
 
   } else if (mousePressed) {
-    tree.cluster(mouseX, mouseY);  
+    //tree.cluster(mouseX, mouseY);  
   }
 
 
@@ -90,46 +90,22 @@ class Tree {
   float treeSize;
   float xPos;
   float yPos;
+  boolean cluster;
   
     // The Constructor is defined with arguments.
-  Tree(float xPos, float yPos, float treeSize) { 
+  Tree(float xPos, float yPos, float treeSize, boolean cluster) { 
     this.treeSize = treeSize;
     this.xPos = xPos;
     this.yPos = yPos;
+    this.cluster = cluster;
   }
   
-   void paint(int treeMode) {
-    if (treeMode == 0) {
-    //draw one tree
-    } else {
-    //draw a cluster
-    }
-    ellipse(xPos,yPos,treeSize, treeSize);
+   void paint(float mouseX, float mouseY, boolean cluster) {
+    if (!cluster) {
+      //add a single tree to array
+  } else {
+    // add a cluster of trees to the array
   }
-  
-  void cluster(float xPos, float yPos) {
-    if (treeMode) {
-      //float tempSize = random(5,25);
-      //fill(random(80,150), random(220,255), random(90,110));
-      //ellipse(xPos , yPos, tempSize, tempSize);
-    } else {
-        stroke(0);
-    int treeSize = 20;
-    fill(100,255,100);
-    for (int i = 0; i < 8; i++) {
-      float swell = 0;
-      if (i > 5 || i < 3) {
-        swell = 0;
-      } else {
-        swell = random(-20,20);
-      }
-      float r = random( treeSize - 10, treeSize + 10);
-      float pos = random( -25, 25);
-      fill(random(80,150), random(220,255), random(90,110));
-      ellipse(xPos + (i * 10),yPos + pos + swell, r, r);
-    }
-    }
-
   }
 }
 
@@ -144,4 +120,8 @@ void drawToggle(boolean treeMode, String name, int x, int y) {
   fill(0);
   text(name, x + 5, y + 15);
   rectMode(CENTER);
+}
+
+void drawFromArray(){
+   
 }
