@@ -28,30 +28,33 @@ void mouseClicked() {
 }
 
 void draw() {
-
+  drawFromArray(); 
   drawToggle(treeMode, "one", 250,0);
   drawToggle(treeMode, "cluster", 325,0);
   fill(255);
-  rect(5, 10, 75, 20);
+  rectMode(CORNER);
+  rect(0,0, 75, 20);
+  rect(75, 0, 75, 20);
   fill(0);
   textSize(12);
-  text("clear", 5, 15);
+  text("clear", 20, 15);
+  text("undo", 20 + 75, 15);
 
   fill(150);
-  rect(width/2, 80, width + 5, 15);
-  rect(width/2, 100, width + 5, 15);
+  rect(-2, 80, width + 5, 15);
+  rect(-2, 100, width + 5, 15);
   myCar1.drive();
   myCar1.display();
   myCar2.drive();
   myCar2.display();
-  drawFromArray();
+
 
   if (mousePressed && mouseX < 40 && mouseY < 20) {
     background(150,200,35);
   } else if (mousePressed && mouseX > 250 && mouseY < 20){
 
   } else if (mousePressed) {
-    //tree.cluster(mouseX, mouseY);  
+       
   }
 
 
@@ -120,16 +123,17 @@ void drawToggle(boolean treeMode, String name, int x, int y) {
 
 void drawFromArray(){
   if (treeList.size() > 0) {
+  background(150,200,35);
   fill(255,0, 0);
   for (int i = 0; i < treeList.size(); i++) {
        noStroke();
        //fill(130,180,15);
-       fill(0,0,0,10);
+       fill(0,0,0,25);
        ellipse(treeList.get(i).xPos - 5, treeList.get(i).yPos + 5, 40, 40);
   } 
+     stroke(0);
+     fill(255,0, 0);
   for (int i = 0; i < treeList.size(); i++) {
-       stroke(0);
-       fill(255,0, 0);
        ellipse(treeList.get(i).xPos, treeList.get(i).yPos, 40, 40);
   } 
   }
