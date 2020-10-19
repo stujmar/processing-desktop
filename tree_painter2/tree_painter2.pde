@@ -2,10 +2,12 @@ Car myCar1;
 Car myCar2;
 Tree tree;
 boolean treeMode;
+boolean refresh;
 ArrayList<Tree> treeList = new ArrayList<Tree>();
 
 void setup() {
   boolean treeMode = true;
+  boolean refresh = true;
   rectMode(CENTER);
   size(400,400);
   background(150,200,35);
