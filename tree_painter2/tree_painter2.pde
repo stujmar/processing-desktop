@@ -20,11 +20,11 @@ void mouseClicked() {
   treeList.add(new Tree(mouseX, mouseY, 40, false));
   } else if (mouseX > 250 && mouseY < 20){
     treeMode = !treeMode;
-  } else if (mouseX < 75 && mouseY < 20) {
+  } else if (mouseX < 75 && mouseY < 20) { //Clear
       print("clear");
       treeList = new ArrayList<Tree>();
-  }
-  print(treeList);
+  } else if (mouseX > 75 && mouseX < 150 && mouseY < 20 && treeList.size() > 0)
+  treeList.remove(treeList.size() - 1);
 }
 
 void draw() {
@@ -49,13 +49,13 @@ void draw() {
   myCar2.display();
 
 
-  if (mousePressed && mouseX < 40 && mouseY < 20) {
-    background(150,200,35);
-  } else if (mousePressed && mouseX > 250 && mouseY < 20){
+  //if (mousePressed && mouseX < 40 && mouseY < 20) {
+  //  background(150,200,35);
+  //} else if (mousePressed && mouseX > 250 && mouseY < 20){
 
-  } else if (mousePressed) {
+  //} else if (mousePressed) {
        
-  }
+  //}
 
 
 }
@@ -122,8 +122,8 @@ void drawToggle(boolean treeMode, String name, int x, int y) {
 }
 
 void drawFromArray(){
-  if (treeList.size() > 0) {
   background(150,200,35);
+  if (treeList.size() > 0) {
   fill(255,0, 0);
   for (int i = 0; i < treeList.size(); i++) {
        noStroke();
@@ -136,7 +136,7 @@ void drawFromArray(){
   for (int i = 0; i < treeList.size(); i++) {
        ellipse(treeList.get(i).xPos, treeList.get(i).yPos, 40, 40);
   } 
-  }
+  } 
 }
 
  void paint(float mouseX, float mouseY, boolean cluster) {
