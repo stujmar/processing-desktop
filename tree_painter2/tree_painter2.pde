@@ -44,6 +44,7 @@ void draw() {
   myCar1.display();
   myCar2.drive();
   myCar2.display();
+  drawFromArray();
 
   if (mousePressed && mouseX < 40 && mouseY < 20) {
     background(150,200,35);
