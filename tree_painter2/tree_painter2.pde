@@ -27,10 +27,14 @@ void mouseClicked() {
       treeList = new ArrayList<Tree>();
   } else if (mouseX > 75 && mouseX < 150 && mouseY < 20 && treeList.size() > 0)
   treeList.remove(treeList.size() - 1);
+  refresh = true;
 }
 
 void draw() {
-  drawFromArray(); 
+  if (refresh) {
+   drawFromArray();
+  }
+ 
   drawToggle(treeMode, "one", 250,0);
   drawToggle(treeMode, "cluster", 325,0);
   fill(255);
@@ -139,6 +143,7 @@ void drawFromArray(){
        ellipse(treeList.get(i).xPos, treeList.get(i).yPos, 40, 40);
   } 
   } 
+  refresh = false;
 }
 
  void paint(float mouseX, float mouseY, boolean cluster) {
