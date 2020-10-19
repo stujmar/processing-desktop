@@ -16,6 +16,7 @@ void setup() {
 }
 
 void mouseClicked() {
+  treeList.add(new Tree(mouseX, mouseY, 40, false));
   if (mouseX > 250 && mouseY < 20){
     treeMode = !treeMode;
   } else if (treeMode) {
@@ -23,6 +24,7 @@ void mouseClicked() {
       fill(random(80,150), random(220,255), random(90,110));
       ellipse(mouseX , mouseY, tempSize, tempSize);
   }
+  print(treeList);
 }
 
 void draw() {
@@ -100,13 +102,6 @@ class Tree {
     this.cluster = cluster;
   }
   
-   void paint(float mouseX, float mouseY, boolean cluster) {
-    if (!cluster) {
-      //add a single tree to array
-  } else {
-    // add a cluster of trees to the array
-  }
-  }
 }
 
 void drawToggle(boolean treeMode, String name, int x, int y) {
@@ -124,4 +119,12 @@ void drawToggle(boolean treeMode, String name, int x, int y) {
 
 void drawFromArray(){
    
+}
+
+ void paint(float mouseX, float mouseY, boolean cluster) {
+  if (!cluster) {
+    //add a single tree to array
+  } else {
+    // add a cluster of trees to the array
+  }
 }
