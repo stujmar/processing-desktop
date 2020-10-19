@@ -122,6 +122,14 @@ void drawFromArray(){
   if (treeList.size() > 0) {
   fill(255,0, 0);
   for (int i = 0; i < treeList.size(); i++) {
+       noStroke();
+       //fill(130,180,15);
+       fill(0,0,0,10);
+       ellipse(treeList.get(i).xPos - 5, treeList.get(i).yPos + 5, 40, 40);
+  } 
+  for (int i = 0; i < treeList.size(); i++) {
+       stroke(0);
+       fill(255,0, 0);
        ellipse(treeList.get(i).xPos, treeList.get(i).yPos, 40, 40);
   } 
   }
