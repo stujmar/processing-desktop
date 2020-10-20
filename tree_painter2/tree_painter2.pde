@@ -22,8 +22,15 @@ void mouseClicked() {
   if (mouseY > 20) { //add a tree.
     float treeSize = random(15,25);
     color c = color(random(80,150), random(220,255), random(90,110)); 
-    treeArray.add(new ArrayList<Tree>()); 
-    treeArray.get(treeArray.size() - 1).add(new Tree(mouseX, mouseY, treeSize, c, false));
+    if (treeMode) {
+      treeArray.add(new ArrayList<Tree>()); 
+      treeArray.get(treeArray.size() - 1).add(new Tree(mouseX, mouseY, treeSize, c, false));
+    } else {
+      treeArray.add(new ArrayList<Tree>()); 
+      treeArray.get(treeArray.size() - 1).add(new Tree(mouseX + 20, mouseY, treeSize, c, false));
+      treeArray.get(treeArray.size() - 1).add(new Tree(mouseX, mouseY, treeSize, c, false));
+      treeArray.get(treeArray.size() - 1).add(new Tree(mouseX, mouseY - 20, treeSize, c, false));
+    }
   } else if (mouseX > 250 && mouseY < 20){ //Toggle Modes.
     treeMode = !treeMode;
   } else if (mouseX < 75 && mouseY < 20) { //Clear.
