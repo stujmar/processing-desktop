@@ -107,15 +107,15 @@ class Tree {
   float xPos;
   float yPos;
   float treeSize;
-  color colorValue;
+  color treeColor;
   boolean cluster;
   
     // The Constructor is defined with arguments.
-  Tree(float xPos, float yPos, float treeSize, color colorValue, boolean cluster) { 
+  Tree(float xPos, float yPos, float treeSize, color treeColor, boolean cluster) { 
     this.treeSize = treeSize;
     this.xPos = xPos;
     this.yPos = yPos;
-    this.colorValue = colorValue;
+    this.treeColor = treeColor;
     this.cluster = cluster;
   }
   
@@ -147,7 +147,7 @@ void drawFromArray(){
      stroke(0);
      
   for (int i = 0; i < treeClick.size(); i++) {
-       fill(treeClick.get(i).colorValue);
+       fill(treeClick.get(i).treeColor);
        ellipse(treeClick.get(i).xPos, treeClick.get(i).yPos, treeClick.get(i).treeSize, treeClick.get(i).treeSize);
   } 
   } 
@@ -155,11 +155,14 @@ void drawFromArray(){
 }
 
 void drawFromNestedArray(){
-  // if the treeArray has length
-  // For every element in the treeArray
-  // if it is a single tree: draw that tree
-  // else if it is an array of trees
-  // draw all those trees.
+  if (treeArray.size() > 0) {
+    for (int i = 0; i < treeArray.size(); i++) {
+      for (int j = 0; j < treeArray.get(i).size(); j++) {
+      fill(treeArray.get(i).get(j).treeColor);
+      //draw tree
+      }  
+    }
+  }
 }
 
  void paint(float mouseX, float mouseY, boolean cluster) {
