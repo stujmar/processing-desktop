@@ -155,7 +155,11 @@ void drawFromArray(){
 }
 
 void drawFromNestedArray(){
-
+  // if the treeArray has length
+  // For every element in the treeArray
+  // if it is a single tree: draw that tree
+  // else if it is an array of trees
+  // draw all those trees.
 }
 
  void paint(float mouseX, float mouseY, boolean cluster) {
