@@ -4,6 +4,8 @@ Tree tree;
 boolean treeMode;
 boolean refresh;
 ArrayList<Tree> treeList = new ArrayList<Tree>();
+// To hold a single tree or a cluster.
+ArrayList<ArrayList<Tree>> treeArray = new ArrayList<ArrayList<Tree>>();
 
 void setup() {
   boolean treeMode = true;
