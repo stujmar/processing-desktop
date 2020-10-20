@@ -14,12 +14,13 @@ void setup() {
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
   myCar2 = new Car(color(0,0,255),0,80,-1);
-  tree = new Tree(50,200,50, false);
 }
 
 void mouseClicked() {
-  if (mouseY > 20) {
-  treeList.add(new Tree(mouseX, mouseY, 40, false));
+  if (mouseY > 20) { //add a tree.
+  float treeSize = random(15,25);
+  color c = color(random(80,150), random(220,255), random(90,110));  
+  treeList.add(new Tree(mouseX, mouseY, treeSize, c, false));
   } else if (mouseX > 250 && mouseY < 20){
     treeMode = !treeMode;
   } else if (mouseX < 75 && mouseY < 20) { //Clear
@@ -99,16 +100,18 @@ class Car {
 }
 
 class Tree {
-  float treeSize;
   float xPos;
   float yPos;
+  float treeSize;
+  color colorValue;
   boolean cluster;
   
     // The Constructor is defined with arguments.
-  Tree(float xPos, float yPos, float treeSize, boolean cluster) { 
+  Tree(float xPos, float yPos, float treeSize, color colorValue, boolean cluster) { 
     this.treeSize = treeSize;
     this.xPos = xPos;
     this.yPos = yPos;
+    this.colorValue = colorValue;
     this.cluster = cluster;
   }
   
@@ -135,12 +138,13 @@ void drawFromArray(){
        noStroke();
        //fill(130,180,15);
        fill(0,0,0,25);
-       ellipse(treeList.get(i).xPos - 5, treeList.get(i).yPos + 5, 40, 40);
+       ellipse(treeList.get(i).xPos - 5, treeList.get(i).yPos + 5, treeList.get(i).treeSize, treeList.get(i).treeSize);
   } 
      stroke(0);
-     fill(255,0, 0);
+     
   for (int i = 0; i < treeList.size(); i++) {
-       ellipse(treeList.get(i).xPos, treeList.get(i).yPos, 40, 40);
+       fill(treeList.get(i).colorValue);
+       ellipse(treeList.get(i).xPos, treeList.get(i).yPos, treeList.get(i).treeSize, treeList.get(i).treeSize);
   } 
   } 
   refresh = false;
