@@ -15,7 +15,7 @@ void setup() {
   background(150,200,35);
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
-  myCar2 = new Car(color(0,0,255),0,80,-1);
+  myCar2 = new Car(color(160,160,255),0,80,-1);
 }
 
 //void mousePressed() {
@@ -69,8 +69,8 @@ void draw() {
   text("undo", 20 + 75, 15);
 
   fill(150);
-  rect(-2, 80, width + 5, 15);
-  rect(-2, 100, width + 5, 15);
+  rect(-2, 77, width + 5, 15);
+  rect(-2, 97, width + 5, 15);
   myCar1.drive();
   myCar1.display();
   myCar2.drive();
