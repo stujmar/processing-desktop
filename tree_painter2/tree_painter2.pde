@@ -3,7 +3,7 @@ Car myCar2;
 Tree tree;
 boolean treeMode;
 boolean refresh;
-ArrayList<Tree> treeList = new ArrayList<Tree>();
+ArrayList<Tree> treeClick = new ArrayList<Tree>();
 // To hold a single tree or a cluster.
 ArrayList<ArrayList<Tree>> treeArray = new ArrayList<ArrayList<Tree>>();
 
@@ -21,15 +21,17 @@ void setup() {
 void mouseClicked() {
   if (mouseY > 20) { //add a tree.
   float treeSize = random(15,25);
-  color c = color(random(80,150), random(220,255), random(90,110));  
-  treeList.add(new Tree(mouseX, mouseY, treeSize, c, false));
+  color c = color(random(80,150), random(220,255), random(90,110)); 
+  treeClick.clear();
+  treeClick.add(new Tree(mouseX, mouseY, treeSize, c, false));
+  treeArray.add(treeClick); 
   } else if (mouseX > 250 && mouseY < 20){
     treeMode = !treeMode;
   } else if (mouseX < 75 && mouseY < 20) { //Clear
       print("clear");
-      treeList = new ArrayList<Tree>();
-  } else if (mouseX > 75 && mouseX < 150 && mouseY < 20 && treeList.size() > 0)
-  treeList.remove(treeList.size() - 1);
+      treeClick = new ArrayList<Tree>();
+  } else if (mouseX > 75 && mouseX < 150 && mouseY < 20 && treeClick.size() > 0)
+  treeClick.remove(treeClick.size() - 1);
   refresh = true;
 }
 
@@ -134,19 +136,19 @@ void drawToggle(boolean treeMode, String name, int x, int y) {
 
 void drawFromArray(){
   background(150,200,35);
-  if (treeList.size() > 0) {
+  if (treeClick.size() > 0) {
   fill(255,0, 0);
-  for (int i = 0; i < treeList.size(); i++) {
+  for (int i = 0; i < treeClick.size(); i++) {
        noStroke();
        //fill(130,180,15);
        fill(0,0,0,25);
-       ellipse(treeList.get(i).xPos - 5, treeList.get(i).yPos + 5, treeList.get(i).treeSize, treeList.get(i).treeSize);
+       ellipse(treeClick.get(i).xPos - 5, treeClick.get(i).yPos + 5, treeClick.get(i).treeSize, treeClick.get(i).treeSize);
   } 
      stroke(0);
      
-  for (int i = 0; i < treeList.size(); i++) {
-       fill(treeList.get(i).colorValue);
-       ellipse(treeList.get(i).xPos, treeList.get(i).yPos, treeList.get(i).treeSize, treeList.get(i).treeSize);
+  for (int i = 0; i < treeClick.size(); i++) {
+       fill(treeClick.get(i).colorValue);
+       ellipse(treeClick.get(i).xPos, treeClick.get(i).yPos, treeClick.get(i).treeSize, treeClick.get(i).treeSize);
   } 
   } 
   refresh = false;
