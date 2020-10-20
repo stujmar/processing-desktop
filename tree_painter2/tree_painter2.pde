@@ -154,6 +154,10 @@ void drawFromArray(){
   refresh = false;
 }
 
+void drawFromNestedArray(){
+
+}
+
  void paint(float mouseX, float mouseY, boolean cluster) {
   if (!cluster) {
     //add a single tree to array
