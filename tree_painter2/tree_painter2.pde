@@ -37,9 +37,9 @@ void mouseClicked() {
 
 void draw() {
   if (refresh) {
-   drawFromArray();
+   //drawFromArray();
   }
- 
+  drawFromNestedArray();
   drawToggle(treeMode, "one", 250,0);
   drawToggle(treeMode, "cluster", 325,0);
   fill(255);
@@ -159,7 +159,11 @@ void drawFromNestedArray(){
     for (int i = 0; i < treeArray.size(); i++) {
       for (int j = 0; j < treeArray.get(i).size(); j++) {
       fill(treeArray.get(i).get(j).treeColor);
-      //draw tree
+      ellipse(
+        treeArray.get(i).get(j).xPos, 
+        treeArray.get(i).get(j).yPos,
+        treeArray.get(i).get(j).treeSize,
+        treeArray.get(i).get(j).treeSize);
       }  
     }
   }
