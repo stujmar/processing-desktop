@@ -18,20 +18,18 @@ void setup() {
   myCar2 = new Car(color(0,0,255),0,80,-1);
 }
 
+//void mousePressed() {
+//  fill(255,0,0);
+//  ellipse(mouseX, mouseY, 30, 30);
+//}
+
 void mouseClicked() {
-  if (mouseY > 20) { //add a tree.
+  if (mouseY > 20 && treeMode) { //add a tree.
     float treeSize = random(15,25);
     color c = color(random(80,150), random(220,255), random(90,110)); 
-    if (treeMode) {
       treeArray.add(new ArrayList<Tree>()); 
       treeArray.get(treeArray.size() - 1).add(new Tree(mouseX, mouseY, treeSize, c, false));
-    } else {
-      treeArray.add(new ArrayList<Tree>()); 
-      treeArray.get(treeArray.size() - 1).add(new Tree(mouseX + 20, mouseY, treeSize, c, false));
-      treeArray.get(treeArray.size() - 1).add(new Tree(mouseX, mouseY, treeSize, c, false));
-      treeArray.get(treeArray.size() - 1).add(new Tree(mouseX, mouseY - 20, treeSize, c, false));
-    }
-  } else if (mouseX > 250 && mouseY < 20){ //Toggle Modes.
+    } else if (mouseX > 250 && mouseY < 20){ //Toggle Modes.
     treeMode = !treeMode;
   } else if (mouseX < 75 && mouseY < 20) { //Clear.
       print("clear");
@@ -43,10 +41,22 @@ void mouseClicked() {
 }
 
 void draw() {
-  if (refresh) {
-   drawFromNestedArray();//drawFromArray();
+ 
+  if (mousePressed && !treeMode && mouseY > 20) {
+    treeArray.add(new ArrayList<Tree>()); 
+    for (int t = 0; t < 11; t ++) {
+        float xOffset = random(-25,25);
+        float yOffset = random(-25,25);
+        float thisTreeSize = random(15,25);
+        color rgb = color(random(80,150), random(220,255), random(90,110)); 
+        treeArray.get(treeArray.size() - 1).add(new Tree(mouseX + xOffset, mouseY + yOffset, thisTreeSize, rgb, false));
+        drawFromNestedArray();
+    }
   }
   
+   if (refresh) {
+   drawFromNestedArray();//drawFromArray();
+  }
   drawToggle(treeMode, "one", 250,0);
   drawToggle(treeMode, "cluster", 325,0);
   fill(255);
