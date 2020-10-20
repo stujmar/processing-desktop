@@ -15,13 +15,8 @@ void setup() {
   background(150,200,35);
   // Parameters go inside the parentheses when the object is constructed.
   myCar1 = new Car(color(255,0,0),0,100,2); 
-  myCar2 = new Car(color(160,160,255),0,80,-1);
+  myCar2 = new Car(color(80,80,255),0,80,-1);
 }
-
-//void mousePressed() {
-//  fill(255,0,0);
-//  ellipse(mouseX, mouseY, 30, 30);
-//}
 
 void mouseClicked() {
   if (mouseY > 20 && treeMode) { //add a tree.
@@ -50,12 +45,12 @@ void draw() {
         float thisTreeSize = random(15,25);
         color rgb = color(random(80,150), random(220,255), random(90,110)); 
         treeArray.get(treeArray.size() - 1).add(new Tree(mouseX + xOffset, mouseY + yOffset, thisTreeSize, rgb, false));
-        drawFromNestedArray();
+        drawFromArray();
     }
   }
   
    if (refresh) {
-   drawFromNestedArray();//drawFromArray();
+   drawFromArray();//drawFromArray();
   }
   drawToggle(treeMode, "one", 250,0);
   drawToggle(treeMode, "cluster", 325,0);
@@ -94,6 +89,7 @@ class Car {
     stroke(0);
     fill(c);
     rect(xpos,ypos,20,10);
+    rect(xpos + 5,ypos,10,10);
   }
 
   void drive() {
@@ -139,26 +135,6 @@ void drawToggle(boolean treeMode, String name, int x, int y) {
 
 void drawFromArray(){
   background(150,200,35);
-  if (treeClick.size() > 0) {
-  fill(255,0, 0);
-  for (int i = 0; i < treeClick.size(); i++) {
-       noStroke();
-       //fill(130,180,15);
-       fill(0,0,0,25);
-       ellipse(treeClick.get(i).xPos - 5, treeClick.get(i).yPos + 5, treeClick.get(i).treeSize, treeClick.get(i).treeSize);
-  } 
-     stroke(0);
-     
-  for (int i = 0; i < treeClick.size(); i++) {
-       fill(treeClick.get(i).treeColor);
-       ellipse(treeClick.get(i).xPos, treeClick.get(i).yPos, treeClick.get(i).treeSize, treeClick.get(i).treeSize);
-  } 
-  } 
-  refresh = false;
-}
-
-void drawFromNestedArray(){
-  background(150,200,35);
   if (treeArray.size() > 0) {
     for (int i = 0; i < treeArray.size(); i++) {
       for (int j = 0; j < treeArray.get(i).size(); j++) {
@@ -172,12 +148,4 @@ void drawFromNestedArray(){
     }
   }
   refresh = false;
-}
-
- void paint(float mouseX, float mouseY, boolean cluster) {
-  if (!cluster) {
-    //add a single tree to array
-  } else {
-    // add a cluster of trees to the array
-  }
 }
