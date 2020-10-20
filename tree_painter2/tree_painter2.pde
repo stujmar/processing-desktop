@@ -22,8 +22,6 @@ void mouseClicked() {
   if (mouseY > 20) { //add a tree.
     float treeSize = random(15,25);
     color c = color(random(80,150), random(220,255), random(90,110)); 
-    //treeClick.clear();
-    //treeClick.add(new Tree(mouseX, mouseY, treeSize, c, false));
     treeArray.add(new ArrayList<Tree>()); 
     treeArray.get(treeArray.size() - 1).add(new Tree(mouseX, mouseY, treeSize, c, false));
   } else if (mouseX > 250 && mouseY < 20){ //Toggle Modes.
@@ -31,8 +29,8 @@ void mouseClicked() {
   } else if (mouseX < 75 && mouseY < 20) { //Clear.
       print("clear");
       treeArray = new ArrayList<ArrayList<Tree>>();
-  } else if (mouseX > 75 && mouseX < 150 && mouseY < 20 && treeClick.size() > 0)
-  treeClick.remove(treeClick.size() - 1);
+  } else if (mouseX > 75 && mouseX < 150 && mouseY < 20 && treeArray.size() > 0)
+  treeArray.remove(treeArray.size() - 1);
   refresh = true;
    print(treeArray);
 }
@@ -147,7 +145,6 @@ void drawFromNestedArray(){
   if (treeArray.size() > 0) {
     for (int i = 0; i < treeArray.size(); i++) {
       for (int j = 0; j < treeArray.get(i).size(); j++) {
-      print("hit");
       fill(treeArray.get(i).get(j).treeColor);
       ellipse(
         treeArray.get(i).get(j).xPos, 
