@@ -3,6 +3,7 @@ Car myCar2;
 Tree tree;
 boolean treeMode;
 boolean refresh;
+int delay = 0;
 ArrayList<Tree> treeClick = new ArrayList<Tree>();
 // To hold a single tree or a cluster.
 ArrayList<ArrayList<Tree>> treeArray = new ArrayList<ArrayList<Tree>>();
@@ -27,26 +28,30 @@ void mouseClicked() {
     } else if (mouseX > 250 && mouseY < 20){ //Toggle Modes.
     treeMode = !treeMode;
   } else if (mouseX < 75 && mouseY < 20) { //Clear.
-      print("clear");
       treeArray = new ArrayList<ArrayList<Tree>>();
   } else if (mouseX > 75 && mouseX < 150 && mouseY < 20 && treeArray.size() > 0)
   treeArray.remove(treeArray.size() - 1);
   refresh = true;
-   print(treeArray);
 }
 
 void draw() {
  
   if (mousePressed && !treeMode && mouseY > 20) {
-    treeArray.add(new ArrayList<Tree>()); 
-    for (int t = 0; t < 11; t ++) {
-        float xOffset = random(-25,25);
-        float yOffset = random(-25,25);
-        float thisTreeSize = random(15,25);
-        color rgb = color(random(80,150), random(220,255), random(90,110)); 
-        treeArray.get(treeArray.size() - 1).add(new Tree(mouseX + xOffset, mouseY + yOffset, thisTreeSize, rgb, false));
-        drawFromArray();
+    if (delay == 0) {
+     treeArray.add(new ArrayList<Tree>()); 
+     for (int t = 0; t < 11; t ++) {
+       float xOffset = random(-25,25);
+       float yOffset = random(-25,25);
+       float thisTreeSize = random(15,25);
+       color rgb = color(random(80,150), random(220,255), random(90,110)); 
+       treeArray.get(treeArray.size() - 1).add(new Tree(mouseX + xOffset, mouseY + yOffset, thisTreeSize, rgb, false));
+       drawFromArray();
+    } 
+    delay = 3;
+    } else {
+    delay--;
     }
+
   }
   
    if (refresh) {
