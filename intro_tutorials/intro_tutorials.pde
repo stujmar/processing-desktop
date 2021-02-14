@@ -22,23 +22,26 @@ void draw() {
   fill(0);
   textSize(12);
   text("clear", 5, 15);
-
+  //Waves tutorial
+  float wave = sin(frameCount);
+  background(150,200,35);
+  ellipse(width/2 + wave, height/2, 100,100);
   
   fill(150);
-  rect(width/2, 80, width + 5, 15);
-  rect(width/2, 100, width + 5, 15);
-  myCar1.drive();
-  myCar1.display();
-  myCar2.drive();
-  myCar2.display();
+  //rect(width/2, 80, width + 5, 15);
+  //rect(width/2, 100, width + 5, 15);
+  //myCar1.drive();
+  //myCar1.display();
+  //myCar2.drive();
+  //myCar2.display();
  
-  tree1.paint();
-  tree2.paint();
-  if (mousePressed && mouseX < 75 && mouseY < 20) {
-    background(150,200,35);
-  } else {
-    tree2.cluster(mouseX, mouseY);  
-  }
+  //tree1.paint();
+  //tree2.paint();
+  //if (mousePressed && mouseX < 75 && mouseY < 20) {
+  //  background(150,200,35);
+  //} else {
+  //  //tree2.cluster(mouseX, mouseY);  
+  //}
 
 
 }
