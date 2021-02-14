@@ -16,16 +16,13 @@ void setup() {
 }
 
 void draw() {
-  // clear button
-  fill(255);
-  rect(5, 10, 75, 20);
-  fill(0);
-  textSize(12);
-  text("clear", 5, 15);
+
   //Waves tutorial
-  float wave = sin(frameCount);
-  background(150,200,35);
-  ellipse(width/2 + wave, height/2, 100,100);
+  float wave = sin(radians(frameCount));
+  background(117,5,69);
+  fill(3,134,181);
+  noStroke();
+  ellipse(width/2 + (wave * 100), height/2, 100,100);
   
   fill(150);
   //rect(width/2, 80, width + 5, 15);
